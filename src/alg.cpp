@@ -16,7 +16,6 @@ int countPairs1(int* arr, int len, int value) {
 int countPairs2(int* arr, int len, int value) {
     if (len <= 1) return 0;
     std::sort(arr, arr + len);
-    
     int count = 0;
     int leftSide = 0;
     int rightSide = len - 1;
@@ -56,10 +55,7 @@ int countPairs2(int* arr, int len, int value) {
 
 int countPairs3(int* arr, int len, int value) {
     if (len <= 1) return 0;
-    
-    // Сортируем исходный массив
     std::sort(arr, arr + len);
-    
     int count = 0;
     for (int i = 0; i < len; ++i) {
         int target = value - arr[i];
