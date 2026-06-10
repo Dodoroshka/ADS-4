@@ -6,8 +6,7 @@ int countPairs1(int* arr, int len, int value) {
         for (int j = i + 1; j < len; ++j) {
             if (arr[i] + arr[j] == value) {
                 count++;
-            }
-            else if (arr[i] + arr[j] > value) {
+            } else if (arr[i] + arr[j] > value) {
                 break;
             }
         }
@@ -26,28 +25,27 @@ int countPairs2(int* arr, int len, int value) {
             int leftCount = 1;
             int rightCount = 1;
 
-            while (leftSide + leftCount < rightSide && arr[leftSide] == arr[leftSide + leftCount]) {
+            while (leftSide + leftCount < rightSide &&
+                arr[leftSide] == arr[leftSide + leftCount]) {
                 leftCount++;
             }
 
-            while (rightSide - rightCount > leftSide && arr[rightSide] == arr[rightSide - rightCount]) {
+            while (rightSide - rightCount > leftSide &&
+                arr[rightSide] == arr[rightSide - rightCount]) {
                 rightCount++;
             }
 
             if (arr[leftSide] == arr[rightSide]) {
                 count += leftCount * (leftCount - 1) / 2;
-            }
-            else {
+            } else {
                 count += leftCount * rightCount;
             }
 
             leftSide += leftCount;
             rightSide -= rightCount;
-        }
-        else if (sum < value) {
+        } else if (sum < value) {
             leftSide++;
-        }
-        else {
+        } else {
             rightSide--;
         }
     }
@@ -69,17 +67,14 @@ int countPairs3(int* arr, int len, int value) {
                 found = true;
                 firstPos = mid;
                 rightSide = mid - 1;
-            }
-            else if (arr[mid] < target) {
+            } else if (arr[mid] < target) {
                 leftSide = mid + 1;
-            }
-            else {
+            } else {
                 rightSide = mid - 1;
             }
         }
 
         if (found) {
-
             int countTarget = 0;
             int j = firstPos;
             while (j < len && arr[j] == target) {
